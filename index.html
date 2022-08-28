@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+    <body>
+        <form action="" id="app">
+             <label for="city">Город</label>
+             <select name="city" id="city" v-model="city" @blur="setCookie">
+                 <option :value="null" disabled selected>Выберите город</option>
+                 <option v-for="i in city_options" v-bind:value="i.text">
+                    {{i.text}}
+                 </option>
+             </select>
+            <label for="workshop">Цех</label>
+            <select name="workshop" id="workshop" v-model="workshop" @blur="setCookie">
+                <option :value="null" disabled selected>Выберите цех</option>
+                <option v-for="i in workshop_options[city]" v-bind:value="i.ws">
+                    {{i.ws}}
+                </option>
+            </select>
+            <label for="staff">Сотрудник</label>
+            <select name="staff" id="staff" @blur="setCookie">
+                <option :value="null" disabled selected>Выберите сотрудника</option>
+                <option v-for="i in staff_option[workshop]" v-bind:value="i">
+                    {{i}}
+                </option>
+            </select>
+            <label for="time">Смена</label>
+            <select name="time" id="time" v-model="time" @blur="setCookie">
+                <option :value="null" disabled selected>Смена</option>
+                <option v-for="i in time_options" v-bind:value="i.interval">
+                    {{i.interval}}
+                </option>
+            </select>
+            <label for="group">Бригада</label>
+            <select name="group" id="group" @blur="setCookie">
+                <option :value="null" disabled selected>Бригада</option>
+                <option v-for="i in group_options[time]" v-bind:value="i">
+                    {{i}}
+                </option>
+            </select>
+            <input type="submit">
+        </form>
+        <script src="https://unpkg.com/vue@3"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

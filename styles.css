@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    padding: 0 10%;
+    background-color: darkcyan;
+}
+
+form {
+    background-color: cornsilk;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+    padding: 10px 10px;
+}
+
+label {
+    justify-self: right;
+}
+
+select, input {
+    outline: none;
+    background-color: lightgrey;
+    border: none;
+    padding: 5px;
+    border-radius: 7px;
+}
+
+input {
+    grid-column: 6/7;
+}
+
+select:after, select:before {
+    outline: none;
+}
